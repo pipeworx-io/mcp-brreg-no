@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.pipeworx-io/brreg-no",
+  "title": "Brreg No",
+  "description": "Brønnøysund Register Centre (BRREG) MCP — Norway's official business register.",
+  "version": "0.1.0",
+  "websiteUrl": "https://pipeworx.io/packs/brreg-no",
+  "repository": {
+    "url": "https://github.com/pipeworx-io/mcp-brreg-no",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://gateway.pipeworx.io/brreg-no/mcp"
+    }
+  ]
+}
