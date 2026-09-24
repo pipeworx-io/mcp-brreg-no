@@ -1,20 +1,32 @@
 {
   "name": "@pipeworx/mcp-brreg-no",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Brønnøysund Register Centre (BRREG) MCP — Norway's official business register.",
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.ts",
+  "bin": {
+    "mcp-brreg-no": "bin/cli.js"
+  },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "brreg-no"],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pipeworx-io/mcp-brreg-no"
+    "url": "git+https://github.com/pipeworx-io/mcp-brreg-no.git"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "tsx": "^4.19.0"
+  },
   "devDependencies": {
-    "typescript": "^5.7.0"
+    "typescript": "^5.9.3",
+    "@cloudflare/workers-types": "^4.20260405.1"
+  },
+  "pipeworx": {
+    "sourceHash": "v1-64840abc0c433770de4ebca4169ff32b0103090e7bbff7d4e16cb8f6266ec341",
+    "sourceCommit": "60f04b68c347e970c6be94a53439d1364061fc06"
   }
 }
