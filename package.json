@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-brreg-no",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Brønnøysund Register Centre (BRREG) MCP — Norway's official business register.",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-64840abc0c433770de4ebca4169ff32b0103090e7bbff7d4e16cb8f6266ec341",
-    "sourceCommit": "60f04b68c347e970c6be94a53439d1364061fc06"
+    "sourceHash": "v1-185152cb4a3f543efae8f523983601427ea0de51f99b9482209ba46b6ba8c699",
+    "sourceCommit": "babdd280d475dceddecc9ebf8f2a661712781a81"
   }
 }
