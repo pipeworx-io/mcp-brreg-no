@@ -1,0 +1,124 @@
+[
+  {
+    "name": "search_entities",
+    "description": "Search Norwegian companies/organisations (Enhetsregisteret) by name + filters. Results under _embedded.enheter. navn=name, organisasjonsform=org form (e.g. ASA, AS, ENK), naeringskode=industry, forretningsadresse=business address. e.g. {navn:\"equinor\"} or {navn:\"bank\", organisasjonsform:\"ASA\", kommunenummer:\"0301\"}.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "navn": {
+          "type": "string",
+          "description": "Full-text name search, e.g. \"equinor\"."
+        },
+        "organisasjonsform": {
+          "type": "string",
+          "description": "Org form code, e.g. \"ASA\", \"AS\", \"ENK\"."
+        },
+        "kommunenummer": {
+          "type": "string",
+          "description": "Municipality number, e.g. \"0301\" (Oslo)."
+        },
+        "size": {
+          "type": "number",
+          "description": "Results per page (default 20, max 10000)."
+        },
+        "page": {
+          "type": "number",
+          "description": "Zero-based page number (default 0)."
+        }
+      }
+    }
+  },
+  {
+    "name": "get_entity",
+    "description": "Full record for one entity by 9-digit org number. e.g. {orgnr:\"923609016\"} (Equinor ASA). Returns navn, organisasjonsform, naeringskode1, forretningsadresse, antallAnsatte, stiftelsesdato, etc.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "orgnr": {
+          "type": "string",
+          "description": "9-digit org number, e.g. \"923609016\"."
+        }
+      },
+      "required": [
+        "orgnr"
+      ]
+    }
+  },
+  {
+    "name": "search_sub_entities",
+    "description": "Search sub-entities/branches (underenheter) — e.g. local establishments of a parent company. Results under _embedded.underenheter. Filter by overordnetEnhet (parent org number) and/or navn. e.g. {overordnetEnhet:\"923609016\"} lists Equinor branches.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "navn": {
+          "type": "string",
+          "description": "Full-text name search."
+        },
+        "overordnetEnhet": {
+          "type": "string",
+          "description": "Parent entity org number, e.g. \"923609016\"."
+        },
+        "kommunenummer": {
+          "type": "string",
+          "description": "Municipality number, e.g. \"0301\"."
+        },
+        "size": {
+          "type": "number",
+          "description": "Results per page (default 20)."
+        },
+        "page": {
+          "type": "number",
+          "description": "Zero-based page number (default 0)."
+        }
+      }
+    }
+  },
+  {
+    "name": "get_sub_entity",
+    "description": "Full record for one sub-entity/branch (underenhet) by 9-digit org number. e.g. {orgnr:\"973861883\"} (Equinor ASA AVD CCB SOTRA).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "orgnr": {
+          "type": "string",
+          "description": "9-digit sub-entity org number, e.g. \"973861883\"."
+        }
+      },
+      "required": [
+        "orgnr"
+      ]
+    }
+  },
+  {
+    "name": "get_roles",
+    "description": "Roles for an entity — board members (styre), CEO (daglig leder), chair (styreleder), auditor, etc. by 9-digit org number. e.g. {orgnr:\"923609016\"}.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "orgnr": {
+          "type": "string",
+          "description": "9-digit org number, e.g. \"923609016\"."
+        }
+      },
+      "required": [
+        "orgnr"
+      ]
+    }
+  },
+  {
+    "name": "get_accounts",
+    "description": "Annual financial statements (Regnskapsregisteret) for an entity by 9-digit org number. Returns an array, one element per filed year, with resultatregnskapResultat (income statement), eiendeler (assets), egenkapitalGjeld (equity & liabilities), valuta (currency), regnskapsperiode (period). e.g. {orgnr:\"923609016\"}.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "orgnr": {
+          "type": "string",
+          "description": "9-digit org number, e.g. \"923609016\"."
+        }
+      },
+      "required": [
+        "orgnr"
+      ]
+    }
+  }
+]
